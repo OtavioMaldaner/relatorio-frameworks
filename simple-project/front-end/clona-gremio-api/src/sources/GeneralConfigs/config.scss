@@ -1,0 +1,58 @@
+// Importing the fonts
+// Oswald
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+// Roboto
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+// Colors
+$backgroundColor: #0ea5e9;
+$defaultFontColor: #000000;
+$buttonColor: #27272a;
+$buttonFontColor: #f3f4f6;
+$buttonHover: #9d9fa1;
+$playerShadow: #27272ad3;
+
+// Screen break sizes
+$minSize: 320px;
+$mediumSize: 700px;
+$maxSize: 1200px;
+
+// Fonts
+$mainFont: 'Oswald', sans-serif;
+$secondaryFont: 'Roboto', sans-serif;
+
+// Font sizes
+$desktopTitle: 32px;
+$desktopSubtitle: 29px;
+$desktopText: 25px;
+$mobileTitle: 27px;
+$mobileSubtitle: 24px;
+$mobileText: 20px;
+
+// Exporting global variables
+:export {
+    // Colors
+    backgroundColor: $backgroundColor;
+    defaultFontColor: $defaultFontColor;
+    buttonColor: $buttonColor;
+    buttonFontColor: $buttonFontColor;
+    buttonHover: $buttonHover;
+    playerShadow: $playerShadow;
+
+    // Screen break sizes
+    minSize: $minSize;
+    mediumSize: $mediumSize;
+    maxSize: $maxSize;
+
+    // Fonts
+    mainFont: $mainFont;
+    secondaryFont: $secondaryFont;
+
+    // Font sizes
+    desktopTitle: $desktopTitle;
+    desktopSubtitle: $desktopSubtitle;
+    desktopText: $desktopText;
+    mobileTitle: $mobileTitle;
+    mobileSubtitle: $mobileSubtitle;
+    mobileText: $mobileText;
+}

@@ -1,0 +1,183 @@
+@import '../../sources/GeneralConfigs/config.scss';
+$borderColor: $defaultFontColor;
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: $buttonColor;
+    color: $buttonFontColor;
+    text-align: center;
+    font-family: $secondaryFont;
+    transition: all ease 0.2s;
+    margin-top: 10px;
+    width: 25vw;
+    // height: 7vh;
+    padding: 10px;
+    max-width: 170px;
+    border: none;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 10px 2px #27272ad3;
+        cursor: pointer;
+    }
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: $mainFont;
+    margin-top: 50px;
+    max-width: $maxSize;
+    min-width: $minSize;
+    margin: auto;
+    height: 20%;
+    width: 100%;
+    .all {
+        align-items: center;
+        display: flex;
+        width: 80%;
+        @media (max-width: $mediumSize) {
+            flex-direction: column;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            @media (max-width: $mediumSize) {
+                width: 100%;
+            }
+            .body-title {
+                color: $defaultFontColor;
+                h1 {
+                    font-size: $mobileTitle;
+                    @media (min-width: $mediumSize) {
+                        font-size: $desktopTitle;
+                    }
+                }
+            }
+            input {
+                margin: 5px;
+                border: 0;
+                border-bottom: 2px solid $borderColor;
+                outline: 0;
+                &::placeholder {
+                    color: $defaultFontColor;
+                }
+            }
+            
+        }
+        .description {
+            font-family: $secondaryFont;
+            width: 50%;
+            @media (max-width: $mediumSize) {
+                margin-top: 30px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .mainPlayerPart {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            @media (max-width: $mediumSize) {
+                margin: 30px 0;
+            }
+            h2 {
+                font-size: $mobileSubtitle;
+                @media (min-width: $mediumSize) {
+                    font-size: $desktopSubtitle;
+                }
+            }
+            p {
+                margin: 10px 0;
+            }
+            .playerImage {
+                height: 535px;
+                width: 355px;
+                box-shadow: 0 0 20px 8px $playerShadow;
+                margin: 20px 0;
+                // object-fit: cover;
+                border-radius: 5px;
+                @media (max-width: $mediumSize) {
+                    width: 100%;
+                    height: 85%;
+                }
+            }
+        }
+
+    }
+}
+
+// .buttonDark{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     border-radius: 10px;
+//     background-color: #f3f4f6;
+//     color: #27272a;
+//     text-align: center;
+//     font-family: 'Roboto', sans-serif;
+//     transform: scale(0.95);
+//     transition: all ease 0.2s;
+// }
+// .buttonDark {
+//     margin-top: 10px;
+//     width: 30vw;
+//     height: 7vh;
+// }
+// .button-selector {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     /* width: 100vw; */
+//     margin: 20px;
+// }
+
+// .button-light {
+//     background-color: transparent;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 10px;
+//     border: 1px solid #27272a;
+//     padding: 7px;
+//     transform: scale(0.9);
+//     transition: all ease 0.2s;
+//     font-family: 'Roboto', sans-serif;
+
+// }
+// .button-dark {
+//     background-color: transparent;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 10px;
+//     border: 1px solid #f3f4f6;
+//     padding: 7px;
+//     transform: scale(0.9);
+//     transition: all ease 0.2s;
+//     font-family: 'Roboto', sans-serif;
+//     color: #f3f4f6;
+
+// }
+// .button:hover, 
+// .button-light:hover {
+//     transform: scale(1);
+//     box-shadow: 10px 5px 5px #27272ad3;
+// }
+// .buttonDark:hover,
+// .button-dark:hover {
+//     transform: scale(1);
+//     box-shadow: 10px 5px 5px #9d9fa1;
+// }
+// @media (min-width: 500px) {
+//     .button-selector {
+//         display: flex;
+//         flex-direction: column;
+//     }
+// }

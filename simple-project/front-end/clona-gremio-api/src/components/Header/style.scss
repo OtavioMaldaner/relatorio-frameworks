@@ -1,0 +1,38 @@
+@import '../../sources/GeneralConfigs/config.scss';
+.header {
+    margin: 0;
+    padding: 5%;
+    padding-top: 20px;
+    text-align: center;
+    align-items: center;
+    font-family: $mainFont;
+    color: $defaultFontColor;
+    .header-title {
+        h1 {
+            margin: 0;
+            padding: 10px;
+            font-size: $mobileTitle;
+            @media (min-width: $mediumSize) {
+                font-size: $desktopTitle;
+            }
+        }
+    }
+    .header-subtitle {
+        h3 {
+            margin: 0;
+            padding: 10px;
+            font-size: $mobileSubtitle;
+            @media (min-width: $mediumSize) {
+                font-size: $desktopSubtitle;
+            }
+        }
+    }
+    // .header-alert {
+    //     p {
+    //         font-size: $mobileText;
+    //         @media (min-width: $mediumSize) {
+    //             font-size: $desktopText;
+    //         }
+    //     }
+    // }
+}

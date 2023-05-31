@@ -1,0 +1,13 @@
+@import '../../sources/GeneralConfigs/config.scss';
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: $mainFont;
+    margin: 20px 0;
+    font-size: $mobileText;
+    @media (min-width: $mediumSize) {
+        font-size: $desktopText;
+    }
+}
