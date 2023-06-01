@@ -26,7 +26,7 @@ Nosso projeto consiste na continuidade da produção do projeto [Clona Grêmio](
  * O projeto é dividido em duas partes:
     * Back-end:
         * Para acessar o [back-end](https://github.com/OtavioMaldaner/relatorio-frameworks/tree/main/simple-project/back-end), você deve acessar o diretório `\back-end`. Caso você esteja no diretório raiz, você pode acessar a pasta com o comando:
-        > cd simple-project/back-end/ 
+        ```cd simple-project/back-end/```
         * Para instalar as dependências você pode executar o comando: 
         > pip install uvicorn fastapi
         * Para executar o servidor, você deve executar o comando:
