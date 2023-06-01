@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel</title>
+</head>
+
+<body>
+    <h1>Laravel</h1>
+    <p>1- Comece criando um novo projeto no terminal, execute o seguinte comando para criar um novo projeto Laravel
+        chamado "TaskManager":
+    </p>
+    <p>composer create-project --prefer-dist laravel/laravel TaskManager</p>
+    <p>2- Execute o comando a seguir para uma migração que criará a tabela de tarefas
+    </p>
+    <p>php artisan make:migration create_tasks_table --create=tasks</p>
+    <p>3- Abra o arquivo gerado em ‘database/migrations/YYYY_MM_DD_HHmmss_create_task_table.php’ e adicione o seguinte
+        código:</p>
+    <pre>public function up()
+        {
+            Schema::create('tasks', function (Blueprint $table) {
+                $table->id();
+                $table->string('title');
+                $table->timestamps();
+            });
+        }
+        </pre>
+    <p>4- Em seguida, execute a migração para criar a tabela no banco de dados:
+        ‘php artisan migrate’
+    </p>
+    <p>5- Execute o seguinte comando no terminal para gerar um modelo para a tabela de tarefas:
+    </p>
+    <p>‘php artisan make:model Task’</p>
+    <p>6- Abra o arquivo routes/web.php e adicione a seguinte rota:
+    </p>
+    <p>use App\Http\Controllers\TaskController;</p>
+    <p>Route::get('/tasks', [TaskController::class, 'index']);
+    </p>
+    <p>7- Em seguida, execute o seguinte comando no terminal para gerar um controlador para lidar com as tarefas:
+    </p>
+    <p>‘php artisan make:controller TaskController --resource’
+    </p>
+    <p>8- Abra o arquivo app/Http/Controllers/TaskController.php e atualize o código do controlador da seguinte forma:
+    </p>
+    <p>namespace App\Http\Controllers;</p>
+    <p>use App\Models\Task;
+    </p>
+    <pre>class TaskController extends Controller
+        {
+            public function index()
+            {
+                $tasks = Task::all();
+                return view('tasks.index', compact('tasks'));
+            }
+        }
+        </pre>
+    <p>9- Crie um diretório chamado tasks dentro do diretório resources/views e crie um arquivo de view chamado index.blade.php.
+    </p>
+    <p>No arquivo index.blade.php, adicione o seguinte código:</p>
+    <pre>&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Lista de Tarefas&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Lista de Tarefas&lt;/h1&gt;
+      
+        &lt;ul&gt;
+            @foreach ($tasks as $task)
+                &lt;li&gt;{{ $task->title }}&lt;/li&gt;
+            @endforeach
+        &lt;/ul&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+    <p>10- No terminal, navegue até a pasta do projeto (cd TaskManager) e execute o seguinte comando para iniciar o servidor de desenvolvimento do Laravel:
+    </p>
+    <p>php artisan serve</p>
+    <p>11- Abra seu navegador e acesse http://localhost:8000/tasks. Você verá uma lista de tarefas (atualmente vazia) na página.</p>
+    
+
+
+
+</body>
+
+</html>
