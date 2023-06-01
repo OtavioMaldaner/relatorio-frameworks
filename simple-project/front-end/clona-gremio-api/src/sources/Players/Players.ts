@@ -55,12 +55,13 @@ import LucasCoelho from './imagensNabas/Lucas Coelho.png';
 import Bobo from './imagensNabas/Bobo.png';
 import Fred from './imagensNabas/Fred.png';
 import Negueba from './imagensNabas/Negueba.png';
+import { Jogador } from '../../api/types';
 
-export type Jogador = {
+export default interface APIPlayerType {
     name: string,
-    position: string,
-    image: string,
+    position: string
 }
+
 export const Jogadores: Jogador[] = [{
     name: "Brenno",
     position: "goleiro",

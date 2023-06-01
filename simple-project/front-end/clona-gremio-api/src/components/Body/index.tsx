@@ -1,13 +1,13 @@
 import './style.scss'
-import { useState } from 'react';
-import { Jogador, Jogadores, Nabas } from '../../sources/Players/Players';
+import { useEffect, useState } from 'react';
+import { Jogadores, Nabas } from '../../sources/Players/Players';
 import ProjectDescription from '../ProjectDescription';
+import { Jogador, credit_card } from '../../api/types';
+import api from '../../api';
 const Body = () => {
-    type credit_card = {
-        number: string;
-        cvc: string;
-        date: string;
-    }
+
+    const [arrayLength, setArrayLength] = useState<number>(0);
+    
     const [creditCard, setCreditCard] = useState<credit_card>({
         number: '',
         cvc: '',
@@ -21,7 +21,7 @@ const Body = () => {
     });
     const points = (creditCard: string) => {
         creditCard = creditCard.replace(/[^0-9]/g, '');
-    let out = '';
+        let out = '';
     let valids = 0;//número de caracteres válidos até o momento.
     for(let i = 0;i < creditCard.length; i++){
         let caract = creditCard[i];
@@ -33,14 +33,31 @@ const Body = () => {
                 if(caract != '.') caract = `.${caract}`;
                 valids += 2;
                 break;
-            default:
-                valids += 1;
-                break;
+                default:
+                    valids += 1;
+                    break;
+                }
+                out = `${out}${caract}`;
+            }
+            return out;
+    }
+
+    const getArrayLength = async (): Promise<boolean> => {
+        let response = await api.jogadores.getLength();
+        console.log("Response" + response);
+        if (response) {
+            setArrayLength(response);
+            return true;
         }
-        out = `${out}${caract}`;
+        return false;
     }
-    return out;
-    }
+
+    useEffect(() => {
+        getArrayLength();
+        console.log(arrayLength);
+    }, []);
+
+    
     const result = (): boolean => {
         if (creditCard.cvc != '' || creditCard.date != '' || creditCard.number != '') {
             let now = new Date();
