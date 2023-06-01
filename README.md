@@ -26,25 +26,34 @@ Nosso projeto consiste na continuidade da produção do projeto [Clona Grêmio](
  * O projeto é dividido em duas partes:
     * Back-end:
         * Para acessar o [back-end](https://github.com/OtavioMaldaner/relatorio-frameworks/tree/main/simple-project/back-end), você deve acessar o diretório `\back-end`. Caso você esteja no diretório raiz, você pode acessar a pasta com o comando:
-
-        ```cd simple-project/back-end/```
+        ```sh
+        cd simple-project/back-end/
+        ```
         * Para instalar as dependências você pode executar o comando: 
-        
-        ```pip install uvicorn fastapi```
+        ```sh
+        pip install uvicorn fastapi
+        ```
         * Para executar o servidor, você deve executar o comando:
-
-        ```uvicorn main:app --reload```
+        ```sh
+        uvicorn main:app --reload
+        ```
         * Para visualizar a documentação da API, você pode acessá-la pelo navegador na localização: `localhost:8000/docs`; 
     * Front-end:
         * Para acessar o [front-end](https://github.com/OtavioMaldaner/relatorio-frameworks/tree/main/simple-project/front-end), você deve acessar o diretório `\front-end`. Caso você esteja no diretório raiz, você pode acessar a pasta com o comando:
 
-        ```cd simple-project/front-end/``` 
+        ```sh
+        cd simple-project/front-end/
+        ``` 
         * Para instalar as dependências você deve entrar no diretório `clona-gremio-api` e executar o comando: 
 
-        ```npm install```
+        ```sh
+        npm install
+        ```
         * Para executar o servidor, você deve se manter no mesmo diretório e executar o comando:
 
-        ```npm start```
+        ```sh
+        npm start
+        ```
 
 ## Sobre os autores:
 
