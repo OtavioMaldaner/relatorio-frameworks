@@ -50,3 +50,31 @@ img {
     max-width: 30px;
     height: auto;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 20px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-item {
+    color: #777;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-item:hover {
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
