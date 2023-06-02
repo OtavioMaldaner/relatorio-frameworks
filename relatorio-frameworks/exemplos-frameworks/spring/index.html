@@ -5,47 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Spring</h1>
-    <pre>
+    <div class="container">
+        <h1>Spring</h1>
+        <pre>
         import org.springframework.boot.SpringApplication;
         import org.springframework.boot.autoconfigure.SpringBootApplication;
         import org.springframework.web.bind.annotation.GetMapping;
         import org.springframework.web.bind.annotation.PathVariable;
         import org.springframework.web.bind.annotation.RequestParam;
         import org.springframework.web.bind.annotation.RestController;
-        
+          
         @SpringBootApplication
         @RestController
         public class MyApp {
-        
+          
             public static void main(String[] args) {
                 SpringApplication.run(MyApp.class, args);
             }
-        
+           
             @GetMapping("/")
             public String hello() {
                 return "Hello, World!";
             }
-        
+            
             @GetMapping("/items/{item_id}")
             public String getItem(@PathVariable("item_id") int itemId, @RequestParam(value = "q", required = false) String query) {
                 return "Item ID: " + itemId + ", Query: " + query;
             }
         }
-            </pre>
-    <p>Neste exemplo, usamos o Spring Boot para criar um aplicativo web simples. A classe MyApp é anotada com @SpringBootApplication, indicando que é a classe principal do aplicativo Spring Boot.
-    </p>
-    <p>A anotação @RestController indica que a classe é um controlador que lida com requisições HTTP. A anotação @GetMapping é usada para mapear uma rota HTTP GET para um método específico.</p>
-    <p>O método hello() mapeia a rota raiz ("/") e retorna uma string "Hello, World!".
-    </p>
-    <p>O método getItem() mapeia a rota "/items/{item_id}" e espera um parâmetro de caminho item_id como um número inteiro. Ele também aceita um parâmetro de consulta opcional q. O valor dos parâmetros é retornado como uma string concatenada.
-    </p>
-    <p>Para executar o aplicativo, você precisa ter o Spring Boot configurado e, em seguida, pode iniciar o aplicativo usando o método main(). O aplicativo será iniciado em um servidor embutido e você poderá acessar as rotas definidas, como "http://localhost:8080/" ou "http://localhost:8080/items/42?q=test", em um navegador ou por meio de ferramentas como cURL ou Postman.
-    </p>
+        </pre>
+        <p>Neste exemplo, usamos o Spring Boot para criar um aplicativo web simples. A classe MyApp é anotada com @SpringBootApplication, indicando que é a classe principal do aplicativo Spring Boot.
+        </p>
+        <p>A anotação @RestController indica que a classe é um controlador que lida com requisições HTTP. A anotação @GetMapping é usada para mapear uma rota HTTP GET para um método específico.</p>
+        <p>O método hello() mapeia a rota raiz ("/") e retorna uma string "Hello, World!".
+        </p>
+        <p>O método getItem() mapeia a rota "/items/{item_id}" e espera um parâmetro de caminho item_id como um número inteiro. Ele também aceita um parâmetro de consulta opcional q. O valor dos parâmetros é retornado como uma string concatenada.
+        </p>
+        <p>Para executar o aplicativo, você precisa ter o Spring Boot configurado e, em seguida, pode iniciar o aplicativo usando o método main(). O aplicativo será iniciado em um servidor embutido e você poderá acessar as rotas definidas, como "http://localhost:8080/" ou "http://localhost:8080/items/42?q=test", em um navegador ou por meio de ferramentas como cURL ou Postman.
+        </p>
 
-
+    </div>
 
 </body>
 </html>
