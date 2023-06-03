@@ -70,6 +70,20 @@ const Body = () => {
         return false;
     }
 
+    // const getJogador = async (id: number): Promise<boolean> => {
+    //     let response = await api.jogadores.getTest(creditCard);
+    //     if (response) {
+    //         setPlayer({
+    //             name: response.name,
+    //             image: `data:image/png;base64,${response.image}`,
+    //             position: response.position
+
+    //         });
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
     const getNaba = async (id: number): Promise<boolean> => {
         let response = await api.nabas.get(id);
         if (response) {
@@ -136,7 +150,7 @@ const Body = () => {
                     <input type="text" id="number" value={creditCard.cvc} required maxLength={3} placeholder="Os três números atrás..." onChange={(e)=> {
                         setCreditCard({
                             ...creditCard, 
-                            cvc: e.target.value
+                            cvc: e.target.value.replace(/[^0-9]/g, '')
                         })
                     }}></input>
                     <input type="month" value={creditCard.date} id="date" required onChange={(e)=> {

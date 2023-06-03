@@ -1,6 +1,6 @@
 import axios from 'axios';
 import cors from 'cors';
-import { Jogador, players_array_length } from './types';
+import { Jogador, credit_card, players_array_length } from './types';
 const request = axios.create({
     baseURL: "http://localhost:8000/",
     headers: {
@@ -27,6 +27,18 @@ export default {
     jogadores: {
         get: async (id: number): Promise<Jogador> => {
             const response = await request.get(`jogadores/get/${id}`);
+            if (response.status === 200) {
+                return response.data;
+            } else {
+                return {
+                    image: '',
+                    name: '',
+                    position: ''
+                }
+            }
+        },
+        getTest: async (cc: credit_card): Promise<Jogador> => {
+            const response = await request.post('jogadores/get', {credit_card: cc});
             if (response.status === 200) {
                 return response.data;
             } else {
