@@ -35,9 +35,10 @@ Nosso projeto consiste na continuidade da produção do projeto [Clona Grêmio](
         ```
         * Para executar o servidor, você deve executar o comando:
         ```sh
-        uvicorn main:app --reload
+        python -m uvicorn main:app --reload
         ```
         * Para visualizar a documentação da API, você pode acessá-la pelo navegador na localização: `localhost:8000/docs`; 
+        * Lembre-se de ter certeza que a linguagem está nas variáveis de ambiente do sistema e do usuário;
     * Front-end:
         * Para acessar o [front-end](https://github.com/OtavioMaldaner/relatorio-frameworks/tree/main/simple-project/front-end), você deve acessar o diretório `\front-end`. Caso você esteja no diretório raiz, você pode acessar a pasta com o comando:
 
