@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Jogador } from './types';
+import cors from 'cors';
+import { Jogador, players_array_length } from './types';
 const request = axios.create({
     baseURL: "http://localhost:8000/",
     headers: {
@@ -10,18 +11,45 @@ const request = axios.create({
     withCredentials: false
 });
 export default {
-    jogadores: {
-        getLength: async (): Promise<number> => {
+    general: {
+        getLength: async (): Promise<players_array_length> => {
             const response = await request.get('jogadores/');
-            // console.log(response);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 return response.data;
             } else  {
-                return 0;
+                return {
+                    jogadores: 0,
+                    nabas: 0
+                };
             }
-        },
-        list: async (): Promise<Jogador[]> => {
-            return await request.get("/jogadores/list");
+        }
+    },
+    jogadores: {
+        get: async (id: number): Promise<Jogador> => {
+            const response = await request.get(`jogadores/get/${id}`);
+            if (response.status === 200) {
+                return response.data;
+            } else {
+                return {
+                    image: '',
+                    name: '',
+                    position: ''
+                }
+            }
+        }
+    },
+    nabas: {
+        get: async (id: number): Promise<Jogador> => {
+            const response = await request.get(`nabas/get/${id}`);
+            if (response.status === 200) {
+                return response.data;
+            } else {
+                return {
+                    image: '',
+                    name: '',
+                    position: ''
+                }
+            }
         }
     }
 }

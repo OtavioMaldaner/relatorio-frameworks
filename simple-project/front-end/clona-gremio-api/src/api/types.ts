@@ -9,3 +9,8 @@ export type Jogador = {
     position: string,
     image: string,
 }
+
+export type players_array_length = {
+    jogadores: number, 
+    nabas: number
+}

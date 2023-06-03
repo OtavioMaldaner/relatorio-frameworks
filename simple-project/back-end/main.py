@@ -1,7 +1,23 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+import base64
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+def encode_player_image(player: str, directory: str) -> str:
+    with open(f"./{directory}/{player}.png", "rb") as player_image:
+        str_image = base64.b64encode(player_image.read())
+        clean_str = str_image.decode('utf-8')
+        return clean_str
+    
 jogadores = [
     {"name": "Brenno", "position": "goleiro"},
     {"name": "Fábio", "position": "lateral direito"},
@@ -40,6 +56,7 @@ jogadores = [
     {"name": "André Henrique", "position": "atacante"},
 ]
 
+
 nabas = [
     {"name": "Thiago Santos", "position": "volante"},
     {"name": "Thaciano", "position": "versátil"},
@@ -63,31 +80,33 @@ nabas = [
     {"name": "Negueba", "position": "atacante"},
 ]
 
+for jogador in jogadores:
+    result = encode_player_image(jogador["name"], "images")
+    jogador["image"] = result
+
+for naba in nabas:
+    result = encode_player_image(naba["name"], "imagensNabas")
+    naba["image"] = result
 
 @app.get("/jogadores")
 async def players_length():
-    return len(jogadores)
+    return {"jogadores": len(jogadores), "nabas": len(nabas)}
 
-
-@app.get("/jogadores/list")
-async def players_list():
-    return jogadores
-
+# @app.get("/jogadores/list")
+# async def players_list():
+#     return jogadores
 
 @app.get("/jogadores/get/{id}")
 async def get(id: int):
     return jogadores[id]
 
-
 @app.get("/nabas")
 async def nabas_length():
     return len(nabas)
 
-
-@app.get("/nabas/list")
-async def nabas_list():
-    return nabas
-
+# @app.get("/nabas/list")
+# async def nabas_list():
+#     return nabas
 
 @app.get("/nabas/get/{id}")
 async def get_nabas(id: int):

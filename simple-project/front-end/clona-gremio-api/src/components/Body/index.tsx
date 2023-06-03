@@ -1,12 +1,14 @@
 import './style.scss'
 import { useEffect, useState } from 'react';
-import { Jogadores, Nabas } from '../../sources/Players/Players';
 import ProjectDescription from '../ProjectDescription';
-import { Jogador, credit_card } from '../../api/types';
+import { Jogador, credit_card, players_array_length } from '../../api/types';
 import api from '../../api';
 const Body = () => {
 
-    const [arrayLength, setArrayLength] = useState<number>(0);
+    const [arrayLength, setArrayLength] = useState<players_array_length>({
+        jogadores: 0,
+        nabas: 0
+    });
     
     const [creditCard, setCreditCard] = useState<credit_card>({
         number: '',
@@ -43,10 +45,40 @@ const Body = () => {
     }
 
     const getArrayLength = async (): Promise<boolean> => {
-        let response = await api.jogadores.getLength();
-        console.log("Response" + response);
+        let response = await api.general.getLength();
         if (response) {
-            setArrayLength(response);
+            setArrayLength({
+                jogadores: response.jogadores,
+                nabas: response.nabas
+            });
+            return true;
+        }
+        return false;
+    }
+
+    const getJogador = async (id: number): Promise<boolean> => {
+        let response = await api.jogadores.get(id);
+        if (response) {
+            setPlayer({
+                name: response.name,
+                image: `data:image/png;base64,${response.image}`,
+                position: response.position
+
+            });
+            return true;
+        }
+        return false;
+    }
+
+    const getNaba = async (id: number): Promise<boolean> => {
+        let response = await api.nabas.get(id);
+        if (response) {
+            setPlayer({
+                name: response.name,
+                image: `data:image/png;base64,${response.image}`,
+                position: response.position
+
+            });
             return true;
         }
         return false;
@@ -64,17 +96,8 @@ const Body = () => {
             let year = now.getFullYear();
             if (creditCard.cvc.length < 3 || creditCard.number.length < 19 || Number(creditCard.date.substring(0, 4)) < year) {
                 setToShow(true);
-                let number = Math.floor(Math.random() * Nabas.length);
-                setPlayer({
-                    name: Nabas[number].name,
-                    position: Nabas[number].position,
-                    image: Nabas[number].image
-                })
-                setCreditCard({
-                    number: '',
-                    cvc: '',
-                    date: ''
-                });
+                let number = Math.floor(Math.random() * arrayLength.nabas);
+                getNaba(number);
             } else {
                 /*A conta criada é para gerar um resultado bem aleatório, mas de modo que caso a pessoa insira os mesmos dados o resultado seja o mesmo.
                 A função consiste em dividir os números do cartão em quatro unidades e somar todas elas. Após isto, serão somados os números finais do ano
@@ -85,19 +108,11 @@ const Body = () => {
                 let sumCreditCard = Number(creditCardNumber[0]) + Number(creditCardNumber[1]) + Number(creditCardNumber[2]) + Number(creditCardNumber[3]);
                 let date = Number(creditCard.date.substring(2, 4));
                 let sum = sumCreditCard + date;
-                let divide = Math.round(sum / Number(creditCard.cvc));
-                let multiply = divide * 1000;
-                let rest = Math.round(multiply % Jogadores.length);
-                setPlayer({
-                    name: Jogadores[rest].name,
-                    position: Jogadores[rest].position,
-                    image: Jogadores[rest].image,
-                })
-                setCreditCard({
-                    number: '',
-                    cvc: '',
-                    date: ''
-                });
+                let divide = sum / Number(creditCard.cvc);
+                let multiply = divide * 10000;
+                let rest = Math.round(multiply % arrayLength.jogadores);
+
+                getJogador(rest);
             }
             return true;
         } else {
@@ -149,6 +164,11 @@ const Body = () => {
                                         image: '',
                                         name: '',
                                         position: ''
+                                    })
+                                    setCreditCard({
+                                        cvc: '',
+                                        date: '',
+                                        number: ''
                                     })
                                 })}>Tentar novamente</button>
                             </div>
