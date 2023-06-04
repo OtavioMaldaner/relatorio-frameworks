@@ -45,7 +45,7 @@ Nosso projeto consiste na continuidade da produção do projeto [Clona Grêmio](
         ```sh
         cd simple-project/front-end/
         ``` 
-        * Para instalar as dependências você deve entrar no diretório `clona-gremio-api` e executar o comando: 
+        * Para instalar as dependências você deve executar o comando: 
 
         ```sh
         npm install

@@ -5,6 +5,7 @@
     justify-content: center;
     flex-direction: column;
     font-family: $mainFont;
+    text-align: center;
     margin: 20px 0;
     font-size: $mobileText;
     @media (min-width: $mediumSize) {
