@@ -83,6 +83,7 @@ jogadores = [
     {"name": "Kauan Kelvin", "position": "meia atacante"},
     {"name": "Gustavo Martins", "position": "zagueiro"},
     {"name": "Cuiabano", "position": "lateral esquerdo"},
+    {"name": "Thomas Luciano", "position": "lateral direito"},
     {"name": "André Henrique", "position": "atacante"},
 ]
 
@@ -107,6 +108,15 @@ nabas = [
     {"name": "Bobô", "position": "atacante"},
     {"name": "Fred", "position": "zagueiro"},
     {"name": "Negueba", "position": "atacante"},
+    {"name": "Guilherme", "position": "atacante"},
+    {"name": "Rodrigo Ferreira", "position": "lateral direito"},
+    {"name": "Jaminton Campaz", "position": "meia"},
+    {"name": "Janderson", "position": "atacante"},
+    {"name": "Ricardinho", "position": "atacante"},
+    {"name": "Elias Manoel", "position": "atacante"},
+    {"name": "Sarará", "position": "meio campo"},
+    {"name": "Benítez", "position": "meia"},
+    {"name": "Tonhão", "position": "zagueiro"},
 ]
 
 for jogador in jogadores:
