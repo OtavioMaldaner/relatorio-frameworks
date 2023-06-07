@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>React</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="container">
 
@@ -18,8 +20,43 @@
         </nav>
 
         <h1>React</h1>
-        
+        <h2>Para este exemplo, foi criado um projeto utilizando ViteJS</h2>
+        <p>
+            Para criar o projeto, você deve executar o comando <code>npm create vite@latest</code> para criar um projeto
+            com a versão mais recente da ferramenta. (Necessita de NodeJS 14.8+)
+        </p>
+        <p>
+            Em seguida adicione o nome que você deseja ao seu projeto, o framework React, e, em seguida, a variante que
+            desejar. Neste caso, será utilizada a variante com TypeScript.
+        </p>
+        <p>
+            Com isso pronto, basta entrar na pasta que foi criada o projeto e executar o comando
+            <code>npm install</code> e sem seguida <code>npm run dev</code>, que o código estará executando em um
+            servidor local.
+        </p>
+        <p>
+            Caso você vá ao arquivo <code>App.tsx</code>, que retorna uma função com um código HTML, você deve encontrar
+            um código parecido com este:
+        </p>
+        <img src="./vite-project.png" alt="Código de React">
+        <p>
+            Este código inicia importando o hook useState, que armazena informações temporariamente, as logos do React e do Vite e o código css.
+        </p>
+        <p>
+            Em seguida, é criada a função que retornará o que será exibido na tela. Já na primeira linha temos o "state" que controla um contador básico que a tela possui. o state "count" possui um valor inicial 0. 
+        </p>
+        <p>
+            Após isso, dentro do <code>return()</code>, temos a criação da página, com as logos que foram importadas no início, juntamente com o nome de cada organização. 
+        </p>
+        <p>
+            Em baixo da apresentação das organização, está disposto um card, que possui o contador que é controlado pelo hook importado inicialmente. Assim, como definido na função, em cada clique será somado 1 ao valor antigo do state.
+        </p>
+        <p>
+            Por fim, a aplicação instrui a editar o código e clicar nas logos para aprender a dominar melhor a ferramenta.
+        </p>
+
         <a href="../../index.html" class="botao-voltar"><img src="../../imagens/botao-voltar.png" alt=""></a>
     </div>
 </body>
+
 </html>
