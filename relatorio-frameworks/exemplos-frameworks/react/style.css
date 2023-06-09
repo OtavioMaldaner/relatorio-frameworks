@@ -34,7 +34,7 @@ h1 {
 }
 
 p {
-    color: #444;
+    color: #000;
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 10px;
@@ -43,6 +43,7 @@ p {
 img {
     display: block;
     margin: 15px auto;
+    border-radius: 20px;
 }
 
 .botao-voltar img {
@@ -62,13 +63,13 @@ img {
 }
 
 .nav-item {
-    color: #777;
+    color: #000;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .nav-item:hover {
-    color: #555;
+    color: #000;
 }
 
 a {
