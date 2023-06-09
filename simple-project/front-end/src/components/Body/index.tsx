@@ -147,7 +147,7 @@ const Body = () => {
                             number: points(e.target.value)
                         })
                     }}></input>
-                    <input type="text" id="number" value={creditCard.cvc} required maxLength={3} placeholder="Os três números atrás..." onChange={(e)=> {
+                    <input type="text" id="number" value={creditCard.cvc} required maxLength={3} placeholder="Código de segurança..." onChange={(e)=> {
                         setCreditCard({
                             ...creditCard, 
                             cvc: e.target.value.replace(/[^0-9]/g, '')
