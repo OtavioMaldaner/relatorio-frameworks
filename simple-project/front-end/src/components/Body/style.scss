@@ -113,40 +113,6 @@ $borderColor: $defaultFontColor;
     }
 }
 
-/* Cores do Grêmio FBPA */
-$gremio-blue: #00295e;
-$gremio-black: #000000;
-$gremio-white: #ffffff;
-
-.container {
-  /* Defina a largura e o alinhamento do conteúdo */
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-
-  /* Defina o background tricolor */
-  background: linear-gradient(
-    to bottom,
-    $gremio-blue,
-    $gremio-blue 33.33%,
-    $gremio-black 33.33%,
-    $gremio-black 66.66%,
-    $gremio-white 66.66%
-  );
-}
-
-.all {
-  /* Defina o espaçamento interno */
-  padding: 20px;
-}
-
-.body {
-  /* Defina o fundo branco para contrastar com o tricolor do container */
-  background-color: $gremio-white;
-  padding: 20px;
-}
 // .buttonDark{
 //     display: flex;
 //     align-items: center;
