@@ -28,31 +28,3 @@ $desktopText: 25px;
 $mobileTitle: 27px;
 $mobileSubtitle: 24px;
 $mobileText: 20px;
-
-// Exporting global variables
-:export {
-    // Colors
-    backgroundColor: $backgroundColor;
-    defaultFontColor: $defaultFontColor;
-    buttonColor: $buttonColor;
-    buttonFontColor: $buttonFontColor;
-    buttonHover: $buttonHover;
-    playerShadow: $playerShadow;
-
-    // Screen break sizes
-    minSize: $minSize;
-    mediumSize: $mediumSize;
-    maxSize: $maxSize;
-
-    // Fonts
-    mainFont: $mainFont;
-    secondaryFont: $secondaryFont;
-
-    // Font sizes
-    desktopTitle: $desktopTitle;
-    desktopSubtitle: $desktopSubtitle;
-    desktopText: $desktopText;
-    mobileTitle: $mobileTitle;
-    mobileSubtitle: $mobileSubtitle;
-    mobileText: $mobileText;
-}

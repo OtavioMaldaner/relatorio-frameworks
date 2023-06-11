@@ -9,7 +9,7 @@ const Body = () => {
         jogadores: 0,
         nabas: 0
     });
-    
+
     const [creditCard, setCreditCard] = useState<credit_card>({
         number: '',
         cvc: '',
@@ -19,29 +19,29 @@ const Body = () => {
     const [player, setPlayer] = useState<Jogador>({
         name: '',
         position: '',
-        image:''
+        image: ''
     });
     const points = (creditCard: string) => {
         creditCard = creditCard.replace(/[^0-9]/g, '');
         let out = '';
-    let valids = 0;//número de caracteres válidos até o momento.
-    for(let i = 0;i < creditCard.length; i++){
-        let caract = creditCard[i];
-        switch(valids){
-            case 4:
-            case 9:
-            case 14:
-                //adicionar ponto
-                if(caract != '.') caract = `.${caract}`;
-                valids += 2;
-                break;
+        let valids = 0;//número de caracteres válidos até o momento.
+        for (let i = 0; i < creditCard.length; i++) {
+            let caract = creditCard[i];
+            switch (valids) {
+                case 4:
+                case 9:
+                case 14:
+                    //adicionar ponto
+                    if (caract != '.') caract = `.${caract}`;
+                    valids += 2;
+                    break;
                 default:
                     valids += 1;
                     break;
-                }
-                out = `${out}${caract}`;
             }
-            return out;
+            out = `${out}${caract}`;
+        }
+        return out;
     }
 
     const getArrayLength = async (): Promise<boolean> => {
@@ -69,21 +69,7 @@ const Body = () => {
         }
         return false;
     }
-
-    // const getJogador = async (id: number): Promise<boolean> => {
-    //     let response = await api.jogadores.getTest(creditCard);
-    //     if (response) {
-    //         setPlayer({
-    //             name: response.name,
-    //             image: `data:image/png;base64,${response.image}`,
-    //             position: response.position
-
-    //         });
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
+    
     const getNaba = async (id: number): Promise<boolean> => {
         let response = await api.nabas.get(id);
         if (response) {
@@ -103,7 +89,7 @@ const Body = () => {
         console.log(arrayLength);
     }, []);
 
-    
+
     const result = (): boolean => {
         if (creditCard.cvc != '' || creditCard.date != '' || creditCard.number != '') {
             let now = new Date();
@@ -134,28 +120,28 @@ const Body = () => {
             return false;
         }
     }
-    return(
+    return (
         <div className="container">
             <div className='all'>
                 <div className="body">
                     <div className="body-title">
                         <h1>Dados do cartão:</h1>
                     </div>
-                    <input type="text" id="name" value={creditCard.number} required placeholder="Número do cartão..." maxLength={19} onChange={(e)=> {
+                    <input type="text" id="name" value={creditCard.number} required placeholder="Número do cartão..." maxLength={19} onChange={(e) => {
                         setCreditCard({
-                            ...creditCard, 
+                            ...creditCard,
                             number: points(e.target.value)
                         })
                     }}></input>
-                    <input type="text" id="number" value={creditCard.cvc} required maxLength={3} placeholder="Código de segurança..." onChange={(e)=> {
+                    <input type="text" id="number" value={creditCard.cvc} required maxLength={3} placeholder="Código de segurança..." onChange={(e) => {
                         setCreditCard({
-                            ...creditCard, 
+                            ...creditCard,
                             cvc: e.target.value.replace(/[^0-9]/g, '')
                         })
                     }}></input>
-                    <input type="month" value={creditCard.date} id="date" required onChange={(e)=> {
+                    <input type="month" value={creditCard.date} id="date" required onChange={(e) => {
                         setCreditCard({
-                            ...creditCard, 
+                            ...creditCard,
                             date: e.target.value
                         })
                     }}></input>

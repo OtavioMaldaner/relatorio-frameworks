@@ -11,6 +11,6 @@ export type Jogador = {
 }
 
 export type players_array_length = {
-    jogadores: number, 
+    jogadores: number,
     nabas: number
 }

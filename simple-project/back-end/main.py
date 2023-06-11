@@ -1,10 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import base64
-import datetime
-import random
 from pydantic import BaseModel
-# import CreditCard
 
 app = FastAPI()
 
@@ -31,22 +28,6 @@ def encode_player_image(player: str, directory: str) -> str:
         str_image = base64.b64encode(player_image.read())
         clean_str = str_image.decode('utf-8')
         return clean_str
-    
-
-# def calc_result(credit_card: CreditCard):
-#     ccNumber = credit_card.number
-#     date = int(credit_card.date[0:4])
-#     if len(credit_card.cvc) < 3 | len(credit_card.number) < 19 | date < this_year:
-#         return nabas[round(random.randint(0, nabas.count()))]
-#     else:
-#         dividedNumber = ccNumber.split('.')
-#         ccsum = 0
-#         for number in dividedNumber:
-#             ccsum += int(number)
-#         ccsum += date
-#         div = ccsum / int(credit_card.cvc)
-#         mult = div * 10000
-#         return jogadores[round(mult % jogadores.count())] 
 
 jogadores = [
     {"name": "Brenno", "position": "goleiro"},
@@ -139,30 +120,17 @@ for naba in nabas:
     result = encode_player_image(naba["name"], "imagensNabas")
     naba["image"] = result
 
-@app.get("/jogadores")
+@app.get("/")
 async def players_length():
     return {"jogadores": len(jogadores), "nabas": len(nabas)}
-
-# @app.get("/jogadores/list")
-# async def players_list():
-#     return jogadores
 
 @app.get("/jogadores/get/{id}")
 async def get(id: int):
     return jogadores[id]
 
-# @app.post("/jogadores/get/")
-# async def get(credit_card: CreditCard):
-#     result = calc_result(credit_card)
-#     return result
-
 @app.get("/nabas")
 async def nabas_length():
     return len(nabas)
-
-# @app.get("/nabas/list")
-# async def nabas_list():
-#     return nabas
 
 @app.get("/nabas/get/{id}")
 async def get_nabas(id: int):

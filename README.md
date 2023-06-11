@@ -17,6 +17,8 @@ Obs.:
 
 2 - Entre os frameworks estudados para o relatório não deve estar o Framework Django, pois já o estudaremos no 2º trimestre da disciplina de Programação 4.
 
+### O relatório pode ser acessado no diretório `\relatorio-frameworks` e está disponível no arquivo `index.html`, que está na raiz do diretório;
+
 ## Projeto:
 
 Nosso projeto consiste na continuidade da produção do projeto [Clona Grêmio](https://github.com/OtavioMaldaner/clona-gremio), que foi feito com React com TypeScript e SCSS. Porém, como o projeto já estava implementado com um framework, a ideia foi de criar um "back-end". Com isso, decidimos criar uma API com FastAPI, que retorna os dados necessários para o funcionamento do sistema.

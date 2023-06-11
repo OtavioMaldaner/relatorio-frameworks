@@ -13,10 +13,10 @@ const request = axios.create({
 export default {
     general: {
         getLength: async (): Promise<players_array_length> => {
-            const response = await request.get('jogadores/');
+            const response = await request.get('/');
             if (response.status === 200) {
                 return response.data;
-            } else  {
+            } else {
                 return {
                     jogadores: 0,
                     nabas: 0
@@ -38,7 +38,7 @@ export default {
             }
         },
         getTest: async (cc: credit_card): Promise<Jogador> => {
-            const response = await request.post('jogadores/get', {credit_card: cc});
+            const response = await request.post('jogadores/get', { credit_card: cc });
             if (response.status === 200) {
                 return response.data;
             } else {
