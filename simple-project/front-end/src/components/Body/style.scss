@@ -21,6 +21,10 @@ $borderColor: $defaultFontColor;
         box-shadow: 0 0 10px 2px #27272ad3;
         cursor: pointer;
     }
+
+    &:disabled {
+        opacity: 0.7;
+    }
 }
 .container {
     display: flex;

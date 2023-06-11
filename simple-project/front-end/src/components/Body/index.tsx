@@ -69,7 +69,7 @@ const Body = () => {
         }
         return false;
     }
-    
+
     const getNaba = async (id: number): Promise<boolean> => {
         let response = await api.nabas.get(id);
         if (response) {
@@ -127,26 +127,26 @@ const Body = () => {
                     <div className="body-title">
                         <h1>Dados do cartão:</h1>
                     </div>
-                    <input type="text" id="name" value={creditCard.number} required placeholder="Número do cartão..." maxLength={19} onChange={(e) => {
+                    <input type="text" id="name" value={creditCard.number} disabled={toShow ? true : false} required placeholder="Número do cartão..." maxLength={19} onChange={(e) => {
                         setCreditCard({
                             ...creditCard,
                             number: points(e.target.value)
                         })
                     }}></input>
-                    <input type="text" id="number" value={creditCard.cvc} required maxLength={3} placeholder="Código de segurança..." onChange={(e) => {
+                    <input type="text" id="number" value={creditCard.cvc} disabled={toShow ? true : false} required maxLength={3} placeholder="Código de segurança..." onChange={(e) => {
                         setCreditCard({
                             ...creditCard,
                             cvc: e.target.value.replace(/[^0-9]/g, '')
                         })
                     }}></input>
-                    <input type="month" value={creditCard.date} id="date" required onChange={(e) => {
+                    <input type="month" value={creditCard.date} id="date" disabled={toShow ? true : false} required onChange={(e) => {
                         setCreditCard({
                             ...creditCard,
                             date: e.target.value
                         })
                     }}></input>
                     <div>
-                        <button className="button" onClick={result}>Resultado</button>
+                        <button className="button" disabled={toShow ? true : false} onClick={result}>Resultado</button>
                     </div>
                 </div>
                 <div className={!toShow ? 'description' : ''}>
